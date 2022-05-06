@@ -1,5 +1,5 @@
 const express = require('express');
-const { FORCE } = require('sequelize/types/lib/index-hints');
+// const { FORCE } = require('sequelize/types/lib/index-hints');
 const sequelize = require('./config/connection')
 const routes = require('./routes');
 
