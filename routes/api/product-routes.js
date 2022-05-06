@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 //========GETS PRODUCT BY ID AND SHOWS ALL ASSOCIATED CATS AND TAGS========//
 router.get('/:id', async (req, res) => {
   try {
-    const productdata = await Product.findByPk(req.params.id,{include: Category});
+    const productdata = await Product.findByPk(req.params.id,{include: Category,Tag});
     res.status(200).json(productdata)
   } catch (err) {
     res.status(500).json(err);
