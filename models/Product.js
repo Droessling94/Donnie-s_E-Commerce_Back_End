@@ -5,7 +5,7 @@ const sequelize = require('../config/connection');
 const Category = require('./Category');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class Product extends Model {}
+class Product extends Model { }
 
 // set up fields and rules for Product model
 Product.init(
@@ -13,23 +13,30 @@ Product.init(
     // define columns
     product_name: {
       type: DataTypes.STRING,
-      allowNull:false,
+      allowNull: false,
     },
-    price:{
+    price: {
       type: DataTypes.DECIMAL,
-      allowNull:false,
+      allowNull: false,
       isDecimal: true
     },
-    stock:{
+    stock: {
       type: DataTypes.INTEGER,
-      allowNull:false,
+      allowNull: false,
       defaultValue: 10,
       isNumeric: true
     },
-    category_id:{
+    category_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'category',
+        key: 'id'
+      }
+    },
+    tag_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'tag',
         key: 'id'
       }
     },
